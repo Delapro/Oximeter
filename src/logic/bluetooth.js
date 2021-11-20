@@ -3,7 +3,8 @@ import { handleData } from '../adapter/viatom-pulse-oximetry.js';
 const demo = document.body.querySelector('demo-view');
 
 const SERVICE_UUID = '6e400001-b5a3-f393-e0a9-e50e24dcca9e';
-const DEVICE_NAME = 'OxySmart 3843';
+const DEVICE_NAME = '';  // OxySmart 3843
+const DEVICE_NAMEPREFIX = 'OxySmart';
 
 let isConnected = false;
 let device = null;
@@ -28,7 +29,7 @@ async function connect() {
   console.log('connecting...');
   device = await navigator.bluetooth.requestDevice({
     optionalServices: [SERVICE_UUID],
-    filters: [{ name: DEVICE_NAME }],
+    filters: [{ name: DEVICE_NAME }, { namePrefix: DEVICE_NAMEPREFIX }],
     //acceptAllDevices: true,
   });
   const server = await device.gatt.connect();
