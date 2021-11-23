@@ -14,12 +14,14 @@ function parseVitals(arr) {
   const now = timely().format('HH:mm');
   const sats = arr[5];
   const bpm = arr[6];
+  const pi = arr[8];
 
   demo.sats = sats;
   demo.bpm = bpm;
+  demo.pi = pi;
   if (now !== previousMinute) {
     previousMinute = now;
-    dataTable = [[now, sats, bpm], ...dataTable];
+    dataTable = [[now, sats, bpm, pi], ...dataTable];
     demo.data = dataTable;
   }
 }
