@@ -14,7 +14,7 @@ function parseVitals(arr) {
   const now = timely().format('HH:mm');
   const sats = arr[5];
   const bpm = arr[6];
-  const pi = arr[8];
+  const pi = arr[8]/10;
 
   demo.sats = sats;
   demo.bpm = bpm;
