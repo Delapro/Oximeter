@@ -242,7 +242,7 @@ class DemoView extends LitElement {
         }
         main {
           display: grid;
-          grid-template-columns: repeat(3, auto);
+          grid-template-columns: repeat(4, auto);
           grid-gap: 10px 100px;
           padding: 20px;
           justify-content: center;
