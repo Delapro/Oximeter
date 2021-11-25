@@ -25,6 +25,7 @@ class DemoView extends LitElement {
       sats: { type: Number },
       bar: { type: Number },
       beep: { type: Number },
+      pi: { type: Number},
     };
   }
 
@@ -38,6 +39,7 @@ class DemoView extends LitElement {
     this.sats = null;
     this.bar = 0;
     this.beep = 0.3;
+    this.pi = null;
   }
 
   firstUpdated() {
@@ -72,6 +74,7 @@ class DemoView extends LitElement {
     this.sats = null;
     this.bar = 0;
     this.beep = 0.3;
+    this.pi = null;
   }
   async _toggleConnection(e) {
     this._deviceConnected = await toggleConnection();
@@ -122,10 +125,12 @@ class DemoView extends LitElement {
           <div>Time</div>
           <div>SpO2</div>
           <div>HR</div>
+          <div>PI</div>
           ${this.data.map((col) => html`
             <div>${col[0]}</div>
             <div>${col[1]}</div>
             <div>${col[2]}</div>
+            <div>${col[3]}</div>
           `)}
         </main>
       </section>
@@ -237,7 +242,7 @@ class DemoView extends LitElement {
         }
         main {
           display: grid;
-          grid-template-columns: repeat(3, auto);
+          grid-template-columns: repeat(4, auto);
           grid-gap: 10px 100px;
           padding: 20px;
           justify-content: center;
